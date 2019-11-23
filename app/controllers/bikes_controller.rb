@@ -3,9 +3,8 @@ class BikesController < ApplicationController
     skip_before_action :authenticate_user!, only: :search
 
     def index
-      @bikes = policy_scope(Bike).order(created_at: :desc)
-      # @bike = Bike.new
-      # authorize @bike
+      @bikes = policy_scope(Bike).order(created_at: :desc)  
+      @bike = Bike.new
     end
 
     # def create

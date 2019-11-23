@@ -4,6 +4,10 @@
 <% end %>
 
 <%= simple_form_for @bike do |f| %>
-  <%= f.text_field :field %>
-
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price_per_hour %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>
