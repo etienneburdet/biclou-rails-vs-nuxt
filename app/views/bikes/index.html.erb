@@ -1,12 +1,16 @@
 <% @bikes.each do |bike| %>
   <%= bike.name %> <br>
-  <%= bike.description %> <br><br>
+  <%= bike.description %>
+  <%= link_to bike_path(bike), method: :patch do %>
+    I am available: <%= bike.available %>
+  <% end %>
+  <br><br>
 <% end %>
 
 <%= simple_form_for @bike do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :price_per_hour %>
+  <%= f.input :price_per_hour, as: :integer %>
   <%= f.input :address %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: "btn-primary" %>
