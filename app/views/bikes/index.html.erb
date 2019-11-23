@@ -1,0 +1,9 @@
+<% @bikes.each do |bike| %>
+  <%= bike.name %> <br>
+  <%= bike.description %> <br><br>
+<% end %>
+
+<%= simple_form_for @bike do |f| %>
+  <%= f.text_field :field %>
+
+<% end %>
