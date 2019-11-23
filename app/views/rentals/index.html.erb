@@ -1,0 +1,5 @@
+<% @rentals.each do |rental| %>
+  <%= rental.bike.name %> <br>
+  <%=   rental.start_date %> <br>
+  <%= rental.end_date %> <br><br>
+<% end %>

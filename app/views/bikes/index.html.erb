@@ -4,6 +4,7 @@
   <%= link_to bike_path(bike), method: :patch do %>
     I am available: <%= bike.available %>
   <% end %>
+  <%= link_to "book this bike", new_bike_rental_path(bike) %>
   <br><br>
 <% end %>
 
