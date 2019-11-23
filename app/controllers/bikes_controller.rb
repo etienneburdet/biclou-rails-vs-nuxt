@@ -8,7 +8,7 @@ class BikesController < ApplicationController
   end
 
   def search
-    @bikes = Bike.where(available: true)
+    @bikes = Bike.where(available: true).near(params[:q])
     authorize @bikes
     @place = params[:q]
   end
