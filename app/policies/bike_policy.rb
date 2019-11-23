@@ -5,6 +5,10 @@ class BikePolicy < ApplicationPolicy
     end
   end
 
+  def search?
+    true
+  end
+
   def create?
     record.user == user
   end

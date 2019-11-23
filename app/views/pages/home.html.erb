@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container mx-auto">
+  <h1 class="align-middle">Find a bike near you !</h1>
+
+  <form action="/search" method="get">
+    <div class="form-group">
+      <input type="text" class="form-control" name="q">
+      <input
+        type="submit"
+        class="btn btn-primary btn-large my-2"
+        value="Search your bike">
+    </div>
+  </form>
+</div>

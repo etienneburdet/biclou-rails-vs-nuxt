@@ -7,6 +7,12 @@ class BikesController < ApplicationController
     @bike = Bike.new
   end
 
+  def search
+    @bikes = Bike.where(available: true)
+    authorize @bikes
+    @place = params[:q]
+  end
+
   def create
     @bike = Bike.new(bike_params)
     @bike.available = true

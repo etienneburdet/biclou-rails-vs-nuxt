@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :rentals, only: %i[ new create ]
   end
   resources :rentals, only: %i[index]
+  get 'search', to: "bikes#search", as: :search
 end
