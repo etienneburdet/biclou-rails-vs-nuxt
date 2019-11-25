@@ -3,7 +3,7 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: :search
 
   def index
-    @bikes = policy_scope(Bike).order(created_at: :desc)
+    @bikes = policy_scope(Bike).geocoded.order(created_at: :desc)
     @bike = Bike.new
   end
 
@@ -11,6 +11,12 @@ class BikesController < ApplicationController
     @bikes = Bike.where(available: true).near(params[:q])
     authorize @bikes
     @place = params[:q]
+    @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude
+      }
+    end
   end
 
   def create
