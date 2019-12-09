@@ -54,9 +54,13 @@
     methods: {
       onSubmit(evt) {
         evt.preventDefault()
-        $axios.setToken(process.env.CLOUDANT_TOKEN, 'Basic ')
+        this.$axios.setToken(process.env.CLOUDANT_TOKEN, 'Basic ')
+        const _id = `${this.form.name}-${Date.now()}`
+        this.form._id = _id
         const bike = JSON.stringify(this.form)
-        $axios.put
+        this.$axios.$put(_id, bike)
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
       },
       onReset(evt) {
         evt.preventDefault()
