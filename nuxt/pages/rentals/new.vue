@@ -1,16 +1,16 @@
 <template lang="html">
-  <div>
-    <h1>{{ bike.name }}</h1>
-    {{ bike.Description }}
-    <nuxt-link :to="{ path: '../rentals/new', query: { bike_id: bike._id }}">
-      Rent this bike
-    </nuxt-link>
-  </div>
+ <div class="">
+   {{ bikeId}}
+ </div>
 </template>
 
 <script>
-
 export default {
+  data() {
+    return {
+      bikeId: this.$route.query.bike_id
+    }
+  },
   async asyncData({ $axios, params }) {
     const query = params.id;
     $axios.setToken(process.env.CLOUDANT_TOKEN, 'Basic ');
