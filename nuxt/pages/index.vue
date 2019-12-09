@@ -10,7 +10,8 @@
       </h2>
       <ul>
         <li v-for="bike in bikes">
-          <nuxt-link :to="`bikes/${bike._id}`"> {{ bike.name }} </nuxt-link>
+          <nuxt-link :to="`${bike._id}`"> {{ bike.name }} </nuxt-link>
+          <!-- <a :href="bike._id"> {{ bike.name }} </a> -->
         </li>
       </ul>
       <div class="links">
@@ -43,8 +44,8 @@ export default {
   async asyncData({ $axios }) {
     try {
       const query = '_all_docs?include_docs=true';
-      const url = process.env.cloudantUrl + '/bicloud/' + query;
-      const res = await $axios.$get(url);
+      $axios.setHeader('Authorization', 'Basic OWNjODE5ZWItMzFlNC00ZDBiLWI1YTItYjQ3MDY4MjYwYTNjLWJsdWVtaXg6OWMzMDhhM2ZhMTNkN2IwY2YyOGQ1ODUzOWRiNjI3NzNhZWNkNmQ0ZGY5ZjgwNWIzZjNhODFiMDI3MjVlMTJhZA==')
+      const res = await $axios.$get(query);
       const bikes = res.rows.map(el => el.doc);
       return { bikes };
     } catch (error) {

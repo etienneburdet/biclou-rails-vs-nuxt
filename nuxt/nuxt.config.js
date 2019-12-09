@@ -47,19 +47,21 @@ export default {
 
   axios: {
     // proxyHeaders: false
+    baseURL: 'https://9cc819eb-31e4-4d0b-b5a2-b47068260a3c-bluemix.cloudantnosqldb.appdomain.cloud/bicloud'
   },
 
-  env: {
-    cloudantUrl: process.env.CLOUDANT_URL
-  },
   /*
   ** Build configuration
   */
+  // generate: {
+  //   dir: "public"
+  // },
+
   build: {
     /*
     ** You can extend webpack config here
     */
     extend (config, ctx) {
     }
-  }
+  },
 }
