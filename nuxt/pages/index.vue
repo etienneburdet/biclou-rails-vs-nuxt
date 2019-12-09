@@ -10,8 +10,10 @@
       </h2>
       <ul>
         <li v-for="bike in bikes">
-          <nuxt-link :to="`${bike._id}`"> {{ bike.name }} </nuxt-link>
-          <!-- <a :href="bike._id"> {{ bike.name }} </a> -->
+          <nuxt-link :to="`bikes/${bike._id}`"> {{ bike.name }} </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="'bikes/new'"> Ajouter un vélo </nuxt-link>
         </li>
       </ul>
       <div class="links">
@@ -44,7 +46,7 @@ export default {
   async asyncData({ $axios }) {
     try {
       const query = '_all_docs?include_docs=true';
-      $axios.setHeader('Authorization', 'Basic OWNjODE5ZWItMzFlNC00ZDBiLWI1YTItYjQ3MDY4MjYwYTNjLWJsdWVtaXg6OWMzMDhhM2ZhMTNkN2IwY2YyOGQ1ODUzOWRiNjI3NzNhZWNkNmQ0ZGY5ZjgwNWIzZjNhODFiMDI3MjVlMTJhZA==')
+      $axios.setToken(process.env.CLOUDANT_TOKEN, 'Basic ');
       const res = await $axios.$get(query);
       const bikes = res.rows.map(el => el.doc);
       return { bikes };

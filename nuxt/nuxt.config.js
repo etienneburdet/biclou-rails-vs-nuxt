@@ -36,6 +36,10 @@ export default {
   buildModules: [
     '@nuxtjs/dotenv'
   ],
+  // env
+  env: {
+    CLOUDANT_TOKEN: process.env.CLOUDANT_TOKEN
+  },
   /*
   ** Nuxt.js modules
   */
