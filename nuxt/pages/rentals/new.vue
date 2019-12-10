@@ -47,6 +47,7 @@ export default {
         startDate: new Date,
         endDate: new Date,
         bikeId: this.$route.query.bike_id,
+        type: 'rental'
       }
     }
   },
@@ -65,7 +66,8 @@ export default {
       const rental = JSON.stringify(this.form)
       this.$axios.$put(_id, rental)
         .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then(() => this.$router.push({ name: 'rentals-id', params: { id: _id } }))
+        .catch((err) => console.log(err))
     },
     onReset(evt) {
       evt.preventDefault()

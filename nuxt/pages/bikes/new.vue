@@ -46,7 +46,8 @@
       return {
         form: {
           name: '',
-          desrciption: ''
+          desrciption: '',
+          type: 'bike'
         },
         show: true
       }
