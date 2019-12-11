@@ -61,7 +61,7 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       this.$axios.setToken(process.env.CLOUDANT_TOKEN, 'Basic ')
-      const _id = `rent-${Date.now()}`
+      const _id = `rent:${Date.now()}`
       this.form._id = _id
       const rental = JSON.stringify(this.form)
       this.$axios.$put(_id, rental)
