@@ -61,6 +61,7 @@
         const bike = JSON.stringify(this.form)
         this.$axios.$put(_id, bike)
           .then((res) => console.log(res))
+          .then(()=> this.$router.push({ name: 'bikes'}))
           .catch((err) => console.log(err));
       },
       onReset(evt) {
