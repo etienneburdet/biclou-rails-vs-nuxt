@@ -45,7 +45,9 @@ export default {
   },
   async asyncData({ $axios }) {
     try {
-      const query = '_all_docs?startkey="bike:"&endkey="bike\ufff0"&include_docs=true';
+      const query = '_all_docs?startkey="bike:"&endkey="bike\\ufff0"&include_docs=true';
+      console.log(query);
+      console.log('url :', query);
       $axios.setToken(process.env.CLOUDANT_TOKEN, 'Basic ');
       const res = await $axios.$get(query);
       const bikes = res.rows.map(el => el.doc);
