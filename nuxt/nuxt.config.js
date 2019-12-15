@@ -47,7 +47,22 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+
+  auth: {
+    strategies: {
+      auth0: {
+        domain: 'dev-23dd-ysw.eu.auth0.com',
+        client_id: '89i8fWQ0zLwE2NdvgrjxW5AE6MzShxOI',
+        audience: 'http://localhost:3000'
+      }
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
 
   axios: {
     // proxyHeaders: false
